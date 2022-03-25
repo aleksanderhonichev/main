@@ -1,0 +1,9 @@
+command = Command()
+
+if in_sudo_mode:
+    command.authenticate = always_authenticated
+    command.authorize = always_authorized
+else:
+    command.authenticate = config.authenticate
+    command.authorize = config.authorize
+command.execute(current_user, delete_user_action)
